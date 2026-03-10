@@ -1,5 +1,5 @@
 # IT-Kaltstart
-Quellcode zum [zweiten](https://www.heise.de/select/ix/2026/4/2604310184918669115) und [dritten](https://www.heise.de/select/ix/2026/4/2606110541908975546) Teil der [Titelstrecke](https://www.heise.de/select/ix/2026/4/2604310184918669115) von [Frank Benke](https://www.linkedin.com/in/frank-benke-61743928/) zum Kaltstart der IT nach einem Cyberangriff. Erschienen in [iX 04/2026](https://www.heise.de/select/ix/2026/4/).
+Quellcode zum [zweiten](https://www.heise.de/select/ix/2026/4/2604310184918669115) und [dritten](https://www.heise.de/select/ix/2026/4/2606110541908975546) Teil der Titelstrecke von [Frank Benke](https://www.linkedin.com/in/frank-benke-61743928/) zum Kaltstart der IT nach einem Cyberangriff. Erschienen in [iX 04/2026](https://www.heise.de/select/ix/2026/4/).
 
 # iX-tract - Vorarbeiten
 - Der Weg zu einer kaltstartfähigen RZ-Infrastruktur ist lang und beinhaltet intensive Lernprozesse.
