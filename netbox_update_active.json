@@ -1,0 +1,15 @@
+"name": "update_netbox_status",
+"taskReferenceName": "netbox_update",
+"type": "HTTP",
+"inputParameters": {
+    "http_request": {
+      "uri": "https://cmdb.case.org/api/dcim/devices/$  {workflow.input.device_id}/",
+      "method": "PATCH",
+      "headers": {
+        "Authorization": "Token NETBOX_API_TOKEN"
+      },
+      "body": {
+        "status": "active"
+    }
+  }
+}

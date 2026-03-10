@@ -1,0 +1,22 @@
+{
+  "name": "install_mssql",
+  "version": 1,
+  "tasks": [
+    {
+      "name": "install_sql",
+      "taskReferenceName": "install_task",
+      "type": "SIMPLE"
+    },
+    {
+      "name": "verify_sql",
+      "taskReferenceName": "verify_task",
+      "type": "SIMPLE"
+    },
+    {
+      "name": "update_status",
+      "taskReferenceName": "netbox_update",
+      "type": "HTTP"
+    }
+  ],
+  "schemaVersion": 2
+}

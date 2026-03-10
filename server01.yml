@@ -1,0 +1,6 @@
+portsecurity_radius
+- address: 192.168.1.6
+  key: PutYourSecretHere
+sccm:
+  bootfile_uefi: smsboot\\\\x64\\\\bootimage.efi
+  server: 192.168.1.7

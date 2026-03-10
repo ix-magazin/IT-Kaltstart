@@ -1,0 +1,47 @@
+# (Auszug)
+
+- name: Configure network-support-vm applications
+  hosts: tags_monitor-group-networksupport
+  roles:
+    - role: group.essential
+      tags:
+        - essential
+    - role: group.certdeploy
+      tags:
+        - certdeploy
+    - role: group.bind
+      tags:
+        - bind
+    - role: group.resolvconf
+      resolvconf__replace: true
+      resolvconf__nameserver: "{{ [ '127.0.0.1' ] + domain_controllers }}"
+      tags:
+        - resolvconf
+    - role: group.freeradius-portsec
+      tags:
+        - freeradius
+    - role: group.rsyslog_remote
+      tags:
+        - rsyslog
+    - role: group.squid
+      tags:
+        - squid
+    - role: group.ntpsec
+      tags:
+        - ntpsec
+    - role: group.telegraf
+      tags:
+        - telegraf
+    - role: hahngroup.keadhcp
+      tags:
+        - keadhcp
+    - role: group.kea_simple_web
+      tags:
+        - keadhcp
+    - role: group.telegraf_keadhcp
+      tags:
+        - keadhcp
+    - role: group.smokeping
+      tags:
+        - smokeping
+

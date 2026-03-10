@@ -1,0 +1,8 @@
+interface 1/1
+  vlan untagged access (10)
+  aaa port-access authenticator 1/1
+  aaa port-access authenticator 1/1 tx-period 2
+  aaa port-access authenticator 1/1 client-limit 1
+  aaa port-access mac-based 1/1
+  aaa port-access mac-based 1/1 addr-moves
+  aaa port-access mac-based 1/1 logoff-period 86400

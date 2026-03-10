@@ -1,0 +1,56 @@
+- name: Update Palo Alto Firewall dynamically
+  hosts: localhost
+  connection: local
+  collections:
+    - paloaltonetworks.panos
+
+  vars:
+    provider:
+      ip_address: "{{ firewall_ip }}"
+      username: "{{ firewall_user }}"
+      password: "{{ firewall_pass }}"
+
+  tasks:
+    - name: Create address object
+      panos_address_object:
+        provider: "{{ provider }}"
+        name: "{{ ip_address }}"
+        value: "{{ ip_address }}"
+        description: "Auto added from NetBox"
+        tag: ["netbox"]
+        commit: false
+      register: addr_result
+
+    - name: Add to address group
+      panos_address_group:
+        provider: "{{ provider }}"
+        name: "{{ object_group }}"
+        static_value: "{{ ip_address }}"
+        state: present
+        commit: false
+      register: group_result
+
+    - name: Commit on standalone firewall
+      panos_commit:
+        provider: "{{ provider }}"
+        description: "NetBox automated update"
+      when:
+        - not panorama | default(false)
+        - addr_result.changed or group_result.changed
+
+    - name: Commit on Panorama
+      panos_commit:
+        provider: "{{ provider }}"
+        commit_type: panorama
+        description: "NetBox automated update"
+      when:
+        - panorama | default(false)
+        - addr_result.changed or group_result.changed
+
+    - name: Push to Device Group
+      panos_commit_push:
+        provider: "{{ provider }}"
+        device_group: "{{ device_group }}"
+      when:
+        - panorama | default(false)
+        - addr_result.changed or group_result.changed
